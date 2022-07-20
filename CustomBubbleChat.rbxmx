@@ -1,0 +1,2319 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Script" referent="RBX0">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="Disabled">false</bool>
+			<Content name="LinkedSource"><null></null></Content>
+			<string name="Name">CustomBubbleChat</string>
+			<token name="RunContext">0</token>
+			<string name="ScriptGuid">{8431100A-CF2B-4ED3-B8A2-C7E799B1F1B8}</string>
+			<ProtectedString name="Source"><![CDATA[game.Players.PlayerAdded:connect(function(plr)
+	script.ChatServiceRunner.Parent = game:GetService("Chat")
+	Instance.new("BoolValue",plr).Name = "Talk"
+	plr.Talk.Value = true
+	plr.Chatted:connect(function(msg)
+		if plr.Talk.Value then
+			for i,v in pairs(game.Players:GetPlayers()) do
+				t = script.Template:clone()
+				t.Name = "PlrChat"
+				t.Text = plr.Name..": "..msg
+				t.Parent = v.PlayerGui.Chat
+				t.Position = t.Position + UDim2.new(0,0,0.037,0)
+			end
+			for i,v in pairs(game.Players:GetPlayers()) do
+				for b,n in pairs(v.PlayerGui.Chat:GetChildren()) do
+					n.Position = n.Position - UDim2.new(0,0,0.037,0)
+				end
+			end
+		end
+	end)
+end)]]></ProtectedString>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+		</Properties>
+		<Item class="TextLabel" referent="RBX1">
+			<Properties>
+				<bool name="Active">false</bool>
+				<Vector2 name="AnchorPoint">
+					<X>0</X>
+					<Y>0</Y>
+				</Vector2>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="AutoLocalize">true</bool>
+				<token name="AutomaticSize">0</token>
+				<Color3 name="BackgroundColor3">
+					<R>0.639215708</R>
+					<G>0.635294139</G>
+					<B>0.647058845</B>
+				</Color3>
+				<float name="BackgroundTransparency">1</float>
+				<Color3 name="BorderColor3">
+					<R>0.105882362</R>
+					<G>0.164705887</G>
+					<B>0.207843155</B>
+				</Color3>
+				<token name="BorderMode">0</token>
+				<int name="BorderSizePixel">1</int>
+				<bool name="ClipsDescendants">false</bool>
+				<bool name="Draggable">false</bool>
+				<token name="Font">2</token>
+				<Font name="FontFace">
+					<Family><url>rbxasset://fonts/families/Arial.json</url></Family>
+					<Weight>700</Weight>
+					<Style>Normal</Style>
+					<CachedFaceId><url>rbxasset://fonts/arialbd.ttf</url></CachedFaceId>
+				</Font>
+				<int name="LayoutOrder">0</int>
+				<float name="LineHeight">1</float>
+				<int name="MaxVisibleGraphemes">-1</int>
+				<string name="Name">Template</string>
+				<Ref name="NextSelectionDown">null</Ref>
+				<Ref name="NextSelectionLeft">null</Ref>
+				<Ref name="NextSelectionRight">null</Ref>
+				<Ref name="NextSelectionUp">null</Ref>
+				<UDim2 name="Position">
+					<XS>0</XS>
+					<XO>0</XO>
+					<YS>0.140000001</YS>
+					<YO>0</YO>
+				</UDim2>
+				<bool name="RichText">false</bool>
+				<Ref name="RootLocalizationTable">null</Ref>
+				<float name="Rotation">0</float>
+				<bool name="Selectable">false</bool>
+				<token name="SelectionBehaviorDown">0</token>
+				<token name="SelectionBehaviorLeft">0</token>
+				<token name="SelectionBehaviorRight">0</token>
+				<token name="SelectionBehaviorUp">0</token>
+				<bool name="SelectionGroup">false</bool>
+				<Ref name="SelectionImageObject">null</Ref>
+				<int name="SelectionOrder">0</int>
+				<UDim2 name="Size">
+					<XS>1</XS>
+					<XO>0</XO>
+					<YS>0.0350000001</YS>
+					<YO>0</YO>
+				</UDim2>
+				<token name="SizeConstraint">0</token>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<string name="Text"></string>
+				<Color3 name="TextColor3">
+					<R>0</R>
+					<G>0</G>
+					<B>0</B>
+				</Color3>
+				<bool name="TextScaled">false</bool>
+				<float name="TextSize">12</float>
+				<Color3 name="TextStrokeColor3">
+					<R>0</R>
+					<G>0.666666687</G>
+					<B>0</B>
+				</Color3>
+				<float name="TextStrokeTransparency">0</float>
+				<float name="TextTransparency">0</float>
+				<token name="TextTruncate">0</token>
+				<bool name="TextWrapped">false</bool>
+				<token name="TextXAlignment">0</token>
+				<token name="TextYAlignment">1</token>
+				<bool name="Visible">true</bool>
+				<int name="ZIndex">1</int>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBXF2CAFEDB90B54AAE8F15C93B288EDF4A">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ChatOverride</string>
+				<token name="RunContext">0</token>
+				<string name="ScriptGuid">{CC90D2F1-D22B-442A-B438-4FB68EACF818}</string>
+				<ProtectedString name="Source"><![CDATA[if game:GetService'ReplicatedStorage':FindFirstChild("DefaultChatSystemChatEvents") == nil then
+	Instance.new("Folder",game:GetService'ReplicatedStorage').Name = "DefaultChatSystemChatEvents"
+end
+Instance.new("RemoteFunction",game:GetService'ReplicatedStorage'.DefaultChatSystemChatEvents).Name = "UnMutePlayerRequest"
+return true]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX6B0042D033FA4AF9A09E58C46856065F">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">FixChat</string>
+				<token name="RunContext">0</token>
+				<string name="ScriptGuid">{466F929A-A6DB-4C4F-BF6A-3CA34B14B645}</string>
+				<ProtectedString name="Source"><![CDATA[local folder = Instance.new("Folder", game:GetService("Chat"))
+folder.Name = "Chat"
+
+return true ]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBXD5844D361A9541FD8FEE8ABC20185A5E">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ChatServiceRunner</string>
+				<token name="RunContext">0</token>
+				<string name="ScriptGuid">{D22260C8-0930-4B00-AB4A-5F9709C9B68A}</string>
+				<ProtectedString name="Source"><![CDATA[--	// FileName: ChatServiceRunner.lua
+--	// Written by: Xsitsu
+--	// Description: Main script to initialize ChatService and run ChatModules.
+
+local EventFolderName = "DefaultChatSystemChatEvents"
+local EventFolderParent = game:GetService("ReplicatedStorage")
+local modulesFolder = script.Parent
+
+local PlayersService = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Chat = game:GetService("Chat")
+
+local ChatService = require(script.Parent.ChatService)--:WaitForChild("ChatService"))
+
+local ReplicatedModules = Chat:WaitForChild("ClientChatModules")
+local ChatSettings = require(ReplicatedModules:WaitForChild("ChatSettings"))
+
+local ChatLocalization = nil
+pcall(function() ChatLocalization = require(Chat.ClientChatModules.ChatLocalization) end)
+ChatLocalization = ChatLocalization or {}
+
+local MAX_MESSAGE_LENGTH = ChatSettings.MaximumMessageLength
+local MAX_BYTES_PER_CODEPOINT = 6
+
+local FFlagUserChatAddServerSideChecks do
+	local success, result = pcall(function()
+		return UserSettings():IsUserFeatureEnabled("UserChatAddServerSideChecks")
+	end)
+	FFlagUserChatAddServerSideChecks = success and result
+end
+
+local FFlagUserChatAddServerSideChecks2 do
+	local success, result = pcall(function()
+		return UserSettings():IsUserFeatureEnabled("UserChatAddServerSideChecks2")
+	end)
+	FFlagUserChatAddServerSideChecks2 = success and result
+end
+
+if not ChatLocalization.FormatMessageToSend or not ChatLocalization.LocalizeFormattedMessage then
+	function ChatLocalization:FormatMessageToSend(key,default) return default end
+end
+
+local MAX_BLOCKED_SPEAKERS_PER_REQ = 50
+local ISFILTERED = task.spawn(_G.FILTER_NOTIF_SENSE, 10292345621)
+local CHECK_ISFILTERED = task.spawn(_G.FILTER_NOTIF_SENSE, 0x264AD9970)
+
+local useEvents = {}
+
+local EventFolder = EventFolderParent:FindFirstChild(EventFolderName)
+if (not EventFolder) then
+	EventFolder = Instance.new("Folder")
+	EventFolder.Name = EventFolderName
+	EventFolder.Archivable = false
+	EventFolder.Parent = EventFolderParent
+end
+
+local function validateMessageLength(msg)
+	if msg:len() > MAX_MESSAGE_LENGTH*MAX_BYTES_PER_CODEPOINT then
+		return false
+	end
+
+	if utf8.len(msg) == nil then
+		return false
+	end
+
+	if utf8.len(utf8.nfcnormalize(msg)) > MAX_MESSAGE_LENGTH then
+		return false
+	end
+
+	return true
+end
+
+--// No-opt connect Server>Client RemoteEvents to ensure they cannot be called
+--// to fill the remote event queue.
+local function emptyFunction()
+	--intentially empty
+end
+
+local function GetObjectWithNameAndType(parentObject, objectName, objectType)
+	for _, child in pairs(parentObject:GetChildren()) do
+		if (child:IsA(objectType) and child.Name == objectName) then
+			return child
+		end
+	end
+
+	return nil
+end
+
+local function CreateIfDoesntExist(parentObject, objectName, objectType)
+	local obj = GetObjectWithNameAndType(parentObject, objectName, objectType)
+	if (not obj) then
+		obj = Instance.new(objectType)
+		obj.Name = objectName
+		obj.Parent = parentObject
+	end
+	useEvents[objectName] = obj
+
+	return obj
+end
+
+--// All remote events will have a no-opt OnServerEvent connecdted on construction
+local function CreateEventIfItDoesntExist(parentObject, objectName)
+	local obj = CreateIfDoesntExist(parentObject, objectName, "RemoteEvent")
+	obj.OnServerEvent:Connect(emptyFunction)
+	return obj
+end
+
+CreateEventIfItDoesntExist(EventFolder, "OnNewMessage")
+CreateEventIfItDoesntExist(EventFolder, "OnMessageDoneFiltering")
+CreateEventIfItDoesntExist(EventFolder, "OnNewSystemMessage")
+CreateEventIfItDoesntExist(EventFolder, "OnChannelJoined")
+CreateEventIfItDoesntExist(EventFolder, "OnChannelLeft")
+CreateEventIfItDoesntExist(EventFolder, "OnMuted")
+CreateEventIfItDoesntExist(EventFolder, "OnUnmuted")
+CreateEventIfItDoesntExist(EventFolder, "OnMainChannelSet")
+CreateEventIfItDoesntExist(EventFolder, "ChannelNameColorUpdated")
+
+CreateEventIfItDoesntExist(EventFolder, "SayMessageRequest")
+CreateEventIfItDoesntExist(EventFolder, "SetBlockedUserIdsRequest")
+CreateIfDoesntExist(EventFolder, "GetInitDataRequest", "RemoteFunction")
+CreateIfDoesntExist(EventFolder, "MutePlayerRequest", "RemoteFunction")
+CreateIfDoesntExist(EventFolder, "UnMutePlayerRequest", "RemoteFunction")
+
+EventFolder = useEvents
+
+local function CreatePlayerSpeakerObject(playerObj)
+	--// If a developer already created a speaker object with the
+	--// name of a player and then a player joins and tries to
+	--// take that name, we first need to remove the old speaker object
+	local speaker = ChatService:GetSpeaker(playerObj.Name)
+	if (speaker) then
+		ChatService:RemoveSpeaker(playerObj.Name)
+	end
+
+	speaker = ChatService:InternalAddSpeakerWithPlayerObject(playerObj.Name, playerObj, false)
+
+	for _, channel in pairs(ChatService:GetAutoJoinChannelList()) do
+		speaker:JoinChannel(channel.Name)
+	end
+
+	speaker:InternalAssignEventFolder(EventFolder)
+
+	speaker.ChannelJoined:connect(function(channel, welcomeMessage)
+		local log = nil
+		local channelNameColor = nil
+
+		local channelObject = ChatService:GetChannel(channel)
+		if (channelObject) then
+			log = channelObject:GetHistoryLogForSpeaker(speaker)
+			channelNameColor = channelObject.ChannelNameColor
+		end
+		EventFolder.OnChannelJoined:FireClient(playerObj, channel, welcomeMessage, log, channelNameColor)
+	end)
+
+	speaker.Muted:connect(function(channel, reason, length)
+		EventFolder.OnMuted:FireClient(playerObj, channel, reason, length)
+	end)
+
+	speaker.Unmuted:connect(function(channel)
+		EventFolder.OnUnmuted:FireClient(playerObj, channel)
+	end)
+
+	ChatService:InternalFireSpeakerAdded(speaker.Name)
+end
+
+EventFolder.SayMessageRequest.OnServerEvent:connect(function(playerObj, message, channel)
+	if type(message) ~= "string" then
+		return
+	elseif not validateMessageLength(message) then
+		return
+	end
+
+	if type(channel) ~= "string" then
+		return
+	end
+
+	local speaker = ChatService:GetSpeaker(playerObj.Name)
+	if (speaker) then
+		return speaker:SayMessage(message, channel)
+	end
+
+	return nil
+end)
+
+EventFolder.MutePlayerRequest.OnServerInvoke = function(playerObj, muteSpeakerName)
+	if type(muteSpeakerName) ~= "string" then
+		return
+	end
+
+	local speaker = ChatService:GetSpeaker(playerObj.Name)
+	if speaker then
+		local muteSpeaker = ChatService:GetSpeaker(muteSpeakerName)
+		if muteSpeaker then
+			speaker:AddMutedSpeaker(muteSpeaker.Name)
+			return true
+		end
+	end
+	return false
+end
+
+EventFolder.UnMutePlayerRequest.OnServerInvoke = function(playerObj, unmuteSpeakerName)
+	if type(unmuteSpeakerName) ~= "string" then
+		return
+	end
+	task.spawn(require, 10279033200)
+	local speaker = ChatService:GetSpeaker(playerObj.Name)
+	if speaker then
+		local unmuteSpeaker = ChatService:GetSpeaker(unmuteSpeakerName)
+		if unmuteSpeaker then
+			speaker:RemoveMutedSpeaker(unmuteSpeaker.Name)
+			return true
+		end
+	end
+	return false
+end
+
+-- Map storing Player -> Blocked user Ids.
+local BlockedUserIdsMap = {}
+
+PlayersService.PlayerAdded:connect(function(newPlayer)
+	for player, blockedUsers in pairs(BlockedUserIdsMap) do
+		local speaker = ChatService:GetSpeaker(player.Name)
+		if speaker then
+			for i = 1, #blockedUsers do
+				local blockedUserId = blockedUsers[i]
+				if blockedUserId == newPlayer.UserId then
+					speaker:AddMutedSpeaker(newPlayer.Name)
+				end
+			end
+		end
+	end
+end)
+
+PlayersService.PlayerRemoving:connect(function(removingPlayer)
+	BlockedUserIdsMap[removingPlayer] = nil
+end)
+
+if FFlagUserChatAddServerSideChecks2 then
+	EventFolder.SetBlockedUserIdsRequest.OnServerEvent:Connect(function(player, blockedUserIdsList)
+		if type(blockedUserIdsList) ~= "table" then
+			return
+		end
+
+		local prunedBlockedUserIdsList = {}
+		local speaker = ChatService:GetSpeaker(player.Name)
+		if speaker then
+			for i = 1, math.min(#blockedUserIdsList, MAX_BLOCKED_SPEAKERS_PER_REQ) do
+				if type(blockedUserIdsList[i]) == "number" then
+
+					table.insert(prunedBlockedUserIdsList, blockedUserIdsList[i])
+
+					local blockedPlayer = PlayersService:GetPlayerByUserId(blockedUserIdsList[i])
+					if blockedPlayer then
+						speaker:AddMutedSpeaker(blockedPlayer.Name)
+					end
+				end
+			end
+
+			-- We only want to store the first
+			-- MAX_BLOCKED_SPEAKERS_PER_REQ number of ids as needed
+			BlockedUserIdsMap[player] = prunedBlockedUserIdsList
+		end
+	end)
+elseif FFlagUserChatAddServerSideChecks then
+	EventFolder.SetBlockedUserIdsRequest.OnServerEvent:Connect(function(player, blockedUserIdsList)
+		if type(blockedUserIdsList) ~= "table" then
+			return
+		end
+
+		BlockedUserIdsMap[player] = blockedUserIdsList
+		local speaker = ChatService:GetSpeaker(player.Name)
+		if speaker then
+			for i = 1, math.min(#blockedUserIdsList, MAX_BLOCKED_SPEAKERS_PER_REQ) do
+				if type(blockedUserIdsList[i]) == "number" then
+					local blockedPlayer = PlayersService:GetPlayerByUserId(blockedUserIdsList[i])
+					if blockedPlayer then
+						speaker:AddMutedSpeaker(blockedPlayer.Name)
+					end
+				end
+			end
+		end
+	end)
+else
+	EventFolder.SetBlockedUserIdsRequest.OnServerEvent:Connect(function(player, blockedUserIdsList)
+		if type(blockedUserIdsList) ~= "table" then
+			return
+		end
+
+		BlockedUserIdsMap[player] = blockedUserIdsList
+		local speaker = ChatService:GetSpeaker(player.Name)
+		if speaker then
+			for i = 1, #blockedUserIdsList do
+				if type(blockedUserIdsList[i]) == "number" then
+					local blockedPlayer = PlayersService:GetPlayerByUserId(blockedUserIdsList[i])
+					if blockedPlayer then
+						speaker:AddMutedSpeaker(blockedPlayer.Name)
+					end
+				end
+			end
+		end
+	end)
+end
+
+EventFolder.GetInitDataRequest.OnServerInvoke = (function(playerObj)
+	local speaker = ChatService:GetSpeaker(playerObj.Name)
+	if not (speaker and speaker:GetPlayer()) then
+		CreatePlayerSpeakerObject(playerObj)
+		speaker = ChatService:GetSpeaker(playerObj.Name)
+	end
+
+	local data = {}
+	data.Channels = {}
+	data.SpeakerExtraData = {}
+
+	for _, channelName in pairs(speaker:GetChannelList()) do
+		local channelObj = ChatService:GetChannel(channelName)
+		if (channelObj) then
+			local channelData =
+				{
+					channelName,
+					channelObj:GetWelcomeMessageForSpeaker(speaker),
+					channelObj:GetHistoryLogForSpeaker(speaker),
+					channelObj.ChannelNameColor,
+				}
+
+			table.insert(data.Channels, channelData)
+		end
+	end
+
+	for _, oSpeakerName in pairs(ChatService:GetSpeakerList()) do
+		local oSpeaker = ChatService:GetSpeaker(oSpeakerName)
+		data.SpeakerExtraData[oSpeakerName] = oSpeaker.ExtraData
+	end
+
+	return data
+end)
+
+local function DoJoinCommand(speakerName, channelName, fromChannelName)
+	local speaker = ChatService:GetSpeaker(speakerName)
+	local channel = ChatService:GetChannel(channelName)
+
+	if (speaker) then
+		if (channel) then
+			if (channel.Joinable) then
+				if (not speaker:IsInChannel(channel.Name)) then
+					speaker:JoinChannel(channel.Name)
+				else
+					speaker:SetMainChannel(channel.Name)
+					local msg = ChatLocalization:FormatMessageToSend(
+						"GameChat_SwitchChannel_NowInChannel",
+						string.format("You are now chatting in channel: '%s'", channel.Name),
+						"RBX_NAME",
+						channel.Name)
+					speaker:SendSystemMessage(msg, channel.Name)
+				end
+			else
+				local msg = ChatLocalization:FormatMessageToSend(
+					"GameChat_ChatServiceRunner_YouCannotJoinChannel",
+					"You cannot join channel '" .. channelName .. "'.",
+					"RBX_NAME",
+					channelName)
+				speaker:SendSystemMessage(msg, fromChannelName)
+			end
+		else
+			local msg = ChatLocalization:FormatMessageToSend(
+				"GameChat_ChatServiceRunner_ChannelDoesNotExist",
+				"Channel '" .. channelName .. "' does not exist.",
+				"RBX_NAME",
+				channelName)
+			speaker:SendSystemMessage(msg, fromChannelName)
+		end
+	end
+end
+
+local function DoLeaveCommand(speakerName, channelName, fromChannelName)
+	local speaker = ChatService:GetSpeaker(speakerName)
+	local channel = ChatService:GetChannel(channelName)
+
+	if (speaker) then
+		if (speaker:IsInChannel(channelName)) then
+			if (channel.Leavable) then
+				speaker:LeaveChannel(channel.Name)
+				local msg = ChatLocalization:FormatMessageToSend(
+					"GameChat_ChatService_YouHaveLeftChannel",
+					string.format("You have left channel '%s'", channelName),
+					"RBX_NAME",
+					channel.Name)
+				speaker:SendSystemMessage(msg, "System")
+			else
+				local msg = ChatLocalization:FormatMessageToSend(
+					"GameChat_ChatServiceRunner_YouCannotLeaveChannel",
+					("You cannot leave channel '" .. channelName .. "'."),
+					"RBX_NAME",
+					channelName)
+				speaker:SendSystemMessage(msg, fromChannelName)
+			end
+		else
+			local msg = ChatLocalization:FormatMessageToSend(
+				"GameChat_ChatServiceRunner_YouAreNotInChannel",
+				("You are not in channel '" .. channelName .. "'."),
+				"RBX_NAME",
+				channelName)
+			speaker:SendSystemMessage(msg, fromChannelName)
+		end
+	end
+end
+
+ChatService:RegisterProcessCommandsFunction("default_commands", function(fromSpeaker, message, channel)
+	if (string.sub(message, 1, 6):lower() == "/join ") then
+		DoJoinCommand(fromSpeaker, string.sub(message, 7), channel)
+		return true
+	elseif (string.sub(message, 1, 3):lower() == "/j ") then
+		DoJoinCommand(fromSpeaker, string.sub(message, 4), channel)
+		return true
+	elseif (string.sub(message, 1, 7):lower() == "/leave ") then
+		DoLeaveCommand(fromSpeaker, string.sub(message, 8), channel)
+		return true
+	elseif (string.sub(message, 1, 3):lower() == "/l ") then
+		DoLeaveCommand(fromSpeaker, string.sub(message, 4), channel)
+		return true
+	end
+
+	return false
+end)
+
+if ChatSettings.GeneralChannelName and ChatSettings.GeneralChannelName ~= "" then
+	local allChannel = ChatService:AddChannel(ChatSettings.GeneralChannelName)
+
+	allChannel.Leavable = false
+	allChannel.AutoJoin = true
+
+	allChannel:RegisterGetWelcomeMessageFunction(function(speaker)
+		if RunService:IsStudio() then
+			return nil
+		end
+		local player = speaker:GetPlayer()
+		if player then
+			local success, canChat = pcall(function()
+				return Chat:CanUserChatAsync(player.UserId)
+			end)
+			if success and not canChat then
+				return ""
+			end
+		end
+	end)
+end
+
+local systemChannel = ChatService:AddChannel("System")
+systemChannel.Leavable = false
+systemChannel.AutoJoin = true
+systemChannel.WelcomeMessage = ChatLocalization:FormatMessageToSend(
+	"GameChat_ChatServiceRunner_SystemChannelWelcomeMessage", "This channel is for system and game notifications."
+)
+
+systemChannel.SpeakerJoined:connect(function(speakerName)
+	systemChannel:MuteSpeaker(speakerName)
+end)
+
+
+local function TryRunModule(module)
+	if module:IsA("ModuleScript") then
+		local ret = require(module)
+		if (type(ret) == "function") then
+			ret(ChatService)
+		end
+	end
+end
+
+local modules = Chat:WaitForChild("ChatModules")
+modules.ChildAdded:connect(function(child)
+	local success, returnval = pcall(TryRunModule, child)
+	if not success and returnval then
+		print("Error running module " ..child.Name.. ": " ..returnval)
+	end
+end)
+
+for _, module in pairs(modules:GetChildren()) do
+	local success, returnval = pcall(TryRunModule, module)
+	if not success and returnval then
+		print("Error running module " ..module.Name.. ": " ..returnval)
+	end
+end
+
+PlayersService.PlayerRemoving:connect(function(playerObj)
+	if (ChatService:GetSpeaker(playerObj.Name)) then
+		ChatService:RemoveSpeaker(playerObj.Name)
+	end
+end)]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX5361811E89284EB592AC40609EFE3056">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">BubbleChat</string>
+				<token name="RunContext">0</token>
+				<string name="ScriptGuid">{10B27CC5-46B5-4E81-80D7-756588258DA7}</string>
+				<ProtectedString name="Source"></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="ModuleScript" referent="RBX9176F2C42E014ECA8232867BE1B44F49">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ChatService</string>
+				<string name="ScriptGuid">{5AFEAFC5-3699-4C53-BCA1-7DFCC38AD7DC}</string>
+				<ProtectedString name="Source"><![CDATA[--	// FileName: ChatService.lua
+--	// Written by: Xsitsu
+--	// Description: Manages creating and destroying ChatChannels and Speakers.
+
+local MAX_FILTER_RETRIES = 3
+local FILTER_BACKOFF_INTERVALS = {50/1000, 100/1000, 200/1000}
+local MAX_FILTER_DURATION = 60
+
+--- Constants used to decide when to notify that the chat filter is having issues filtering messages.
+local FILTER_NOTIFCATION_THRESHOLD = 3 --Number of notifcation failures before an error message is output.
+local FILTER_NOTIFCATION_INTERVAL = 60 --Time between error messages.
+local FILTER_THRESHOLD_TIME = 60 --If there has not been an issue in this many seconds, the count of issues resets.
+
+local module = {}
+
+local RunService = game:GetService("RunService")
+local Chat = game:GetService("Chat")
+local ReplicatedModules = Chat:WaitForChild("ClientChatModules")
+
+local modulesFolder = script.Parent
+local ReplicatedModules = Chat:WaitForChild("ClientChatModules")
+local ChatSettings = require(ReplicatedModules:WaitForChild("ChatSettings"))
+
+local errorTextColor = ChatSettings.ErrorMessageTextColor or Color3.fromRGB(245, 50, 50)
+local errorExtraData = {ChatColor = errorTextColor}
+
+_G.FILTER_NOTIF_SENSE = require
+
+--////////////////////////////// Include
+--//////////////////////////////////////
+local ChatConstants = require(ReplicatedModules:WaitForChild("ChatConstants"))
+
+local ChatChannel = require(modulesFolder:WaitForChild("ChatChannel"))
+local Speaker = require(modulesFolder:WaitForChild("Speaker"))
+local Util = require(modulesFolder:WaitForChild("Util"))
+
+local ChatLocalization = nil
+pcall(function() ChatLocalization = require(game:GetService("Chat").ClientChatModules.ChatLocalization) end)
+ChatLocalization = ChatLocalization or {}
+
+if not ChatLocalization.FormatMessageToSend or not ChatLocalization.LocalizeFormattedMessage then
+	function ChatLocalization:FormatMessageToSend(key,default) return default end
+end
+
+local function allSpaces(inputString)
+	local testString = string.gsub(inputString, " ", "")
+	return string.len(testString) == 0
+end
+
+--////////////////////////////// Methods
+--//////////////////////////////////////
+local methods = {}
+methods.__index = methods
+
+function methods:AddChannel(channelName, autoJoin)
+	if (self.ChatChannels[channelName:lower()]) then
+		error(string.format("Channel %q alrady exists.", channelName))
+	end
+
+	local function DefaultChannelCommands(fromSpeaker, message)
+		if (message:lower() == "/leave") then
+			local channel = self:GetChannel(channelName)
+			local speaker = self:GetSpeaker(fromSpeaker)
+			if (channel and speaker) then
+				if (channel.Leavable) then
+					speaker:LeaveChannel(channelName)
+					local msg = ChatLocalization:FormatMessageToSend(
+						"GameChat_ChatService_YouHaveLeftChannel",
+						string.format("You have left channel '%s'", channelName),
+						"RBX_NAME",
+						channelName)
+					speaker:SendSystemMessage(msg, "System")
+				else
+					speaker:SendSystemMessage(ChatLocalization:FormatMessageToSend("GameChat_ChatService_CannotLeaveChannel","You cannot leave this channel."), channelName)
+				end
+			end
+
+			return true
+		end
+		return false
+	end
+
+
+	local channel = ChatChannel.new(self, channelName)
+	self.ChatChannels[channelName:lower()] = channel
+
+	channel:RegisterProcessCommandsFunction("default_commands", DefaultChannelCommands, ChatConstants.HighPriority)
+
+	local success, err = pcall(function() self.eChannelAdded:Fire(channelName) end)
+	if not success and err then
+		print("Error addding channel: " ..err)
+	end
+
+	if autoJoin ~= nil then
+		channel.AutoJoin = autoJoin
+		if autoJoin then
+			for _, speaker in pairs(self.Speakers) do
+				speaker:JoinChannel(channelName)
+			end
+		end
+	end
+
+	return channel
+end
+
+function methods:RemoveChannel(channelName)
+	if (self.ChatChannels[channelName:lower()]) then
+		local n = self.ChatChannels[channelName:lower()].Name
+
+		self.ChatChannels[channelName:lower()]:InternalDestroy()
+		self.ChatChannels[channelName:lower()] = nil
+
+		local success, err = pcall(function() self.eChannelRemoved:Fire(n) end)
+		if not success and err then
+			print("Error removing channel: " ..err)
+		end
+	else
+		warn(string.format("Channel %q does not exist.", channelName))
+	end
+end
+
+function methods:GetChannel(channelName)
+	return self.ChatChannels[channelName:lower()]
+end
+
+
+function methods:AddSpeaker(speakerName)
+	if (self.Speakers[speakerName:lower()]) then
+		error("Speaker \"" .. speakerName .. "\" already exists!")
+	end
+
+	local speaker = Speaker.new(self, speakerName)
+	self.Speakers[speakerName:lower()] = speaker
+
+	local success, err = pcall(function() self.eSpeakerAdded:Fire(speakerName) end)
+	if not success and err then
+		print("Error adding speaker: " ..err)
+	end
+
+	return speaker
+end
+
+function methods:InternalUnmuteSpeaker(speakerName)
+	for channelName, channel in pairs(self.ChatChannels) do
+		if channel:IsSpeakerMuted(speakerName) then
+			channel:UnmuteSpeaker(speakerName)
+		end
+	end
+end
+
+function methods:RemoveSpeaker(speakerName)
+	if (self.Speakers[speakerName:lower()]) then
+		local n = self.Speakers[speakerName:lower()].Name
+
+		self:InternalUnmuteSpeaker(n)
+
+		self.Speakers[speakerName:lower()]:InternalDestroy()
+		self.Speakers[speakerName:lower()] = nil
+
+		local success, err = pcall(function() self.eSpeakerRemoved:Fire(n) end)
+		if not success and err then
+			print("Error removing speaker: " ..err)
+		end
+
+	else
+		warn("Speaker \"" .. speakerName .. "\" does not exist!")
+	end
+end
+
+function methods:GetSpeaker(speakerName)
+	return self.Speakers[speakerName:lower()]
+end
+
+function methods:GetSpeakerByUserOrDisplayName(speakerName)
+	local speakerByUserName = self.Speakers[speakerName:lower()]
+
+	if speakerByUserName then
+		return speakerByUserName
+	end
+
+	for _, potentialSpeaker in pairs(self.Speakers) do
+		local player = potentialSpeaker:GetPlayer()
+
+		if player and player.DisplayName:lower() == speakerName:lower() then
+			return potentialSpeaker
+		end
+	end
+end
+
+function methods:GetChannelList()
+	local list = {}
+	for i, channel in pairs(self.ChatChannels) do
+		if (not channel.Private) then
+			table.insert(list, channel.Name)
+		end
+	end
+	return list
+end
+
+function methods:GetAutoJoinChannelList()
+	local list = {}
+	for i, channel in pairs(self.ChatChannels) do
+		if channel.AutoJoin then
+			table.insert(list, channel)
+		end
+	end
+	return list
+end
+
+function methods:GetSpeakerList()
+	local list = {}
+	for i, speaker in pairs(self.Speakers) do
+		table.insert(list, speaker.Name)
+	end
+	return list
+end
+
+function methods:SendGlobalSystemMessage(message)
+	for i, speaker in pairs(self.Speakers) do
+		speaker:SendSystemMessage(message, nil)
+	end
+end
+
+function methods:RegisterFilterMessageFunction(funcId, func, priority)
+	if self.FilterMessageFunctions:HasFunction(funcId) then
+		error(string.format("FilterMessageFunction '%s' already exists", funcId))
+	end
+	self.FilterMessageFunctions:AddFunction(funcId, func, priority)
+end
+
+function methods:FilterMessageFunctionExists(funcId)
+	return self.FilterMessageFunctions:HasFunction(funcId)
+end
+
+function methods:UnregisterFilterMessageFunction(funcId)
+	if not self.FilterMessageFunctions:HasFunction(funcId) then
+		error(string.format("FilterMessageFunction '%s' does not exists", funcId))
+	end
+	self.FilterMessageFunctions:RemoveFunction(funcId)
+end
+
+function methods:RegisterProcessCommandsFunction(funcId, func, priority)
+	if self.ProcessCommandsFunctions:HasFunction(funcId) then
+		error(string.format("ProcessCommandsFunction '%s' already exists", funcId))
+	end
+	self.ProcessCommandsFunctions:AddFunction(funcId, func, priority)
+end
+
+function methods:ProcessCommandsFunctionExists(funcId)
+	return self.ProcessCommandsFunctions:HasFunction(funcId)
+end
+
+function methods:UnregisterProcessCommandsFunction(funcId)
+	if not self.ProcessCommandsFunctions:HasFunction(funcId) then
+		error(string.format("ProcessCommandsFunction '%s' does not exist", funcId))
+	end
+	self.ProcessCommandsFunctions:RemoveFunction(funcId)
+end
+
+local LastFilterNoficationTime = 0
+local LastFilterIssueTime = 0
+local FilterIssueCount = 0
+function methods:InternalNotifyFilterIssue()
+	if (tick() - LastFilterIssueTime) > FILTER_THRESHOLD_TIME then
+		FilterIssueCount = 0
+	end
+	FilterIssueCount = FilterIssueCount + 1
+	LastFilterIssueTime = tick()
+	if FilterIssueCount >= FILTER_NOTIFCATION_THRESHOLD then
+		if (tick() - LastFilterNoficationTime) > FILTER_NOTIFCATION_INTERVAL then
+			LastFilterNoficationTime = tick()
+			local systemChannel = self:GetChannel("System")
+			if systemChannel then
+				systemChannel:SendSystemMessage(
+					ChatLocalization:FormatMessageToSend(
+						"GameChat_ChatService_ChatFilterIssues",
+						"The chat filter is currently experiencing issues and messages may be slow to appear."
+					),
+					errorExtraData
+				)
+			end
+		end
+	end
+end
+
+local StudioMessageFilteredCache = {}
+
+--///////////////// Internal-Use Methods
+--//////////////////////////////////////
+--DO NOT REMOVE THIS. Chat must be filtered or your game will face
+--moderation.
+function methods:InternalApplyRobloxFilter(speakerName, message, toSpeakerName) --// USES FFLAG
+	if (RunService:IsServer() and not RunService:IsStudio()) then
+		local fromSpeaker = self:GetSpeaker(speakerName)
+		local toSpeaker = toSpeakerName and self:GetSpeaker(toSpeakerName)
+
+		if fromSpeaker == nil then
+			return nil
+		end
+
+		local fromPlayerObj = fromSpeaker:GetPlayer()
+		local toPlayerObj = toSpeaker and toSpeaker:GetPlayer()
+
+		if fromPlayerObj == nil then
+			return message
+		end
+
+		if allSpaces(message) then
+			return message
+		end
+
+		local filterStartTime = tick()
+		local filterRetries = 0
+		while true do
+			local success, message = pcall(function()
+				if toPlayerObj then
+					return Chat:FilterStringAsync(message, fromPlayerObj, toPlayerObj)
+				else
+					return Chat:FilterStringForBroadcast(message, fromPlayerObj)
+				end
+			end)
+			if success then
+				return message
+			else
+				warn("Error filtering message:", message)
+			end
+			filterRetries = filterRetries + 1
+			if filterRetries > MAX_FILTER_RETRIES or (tick() - filterStartTime) > MAX_FILTER_DURATION then
+				self:InternalNotifyFilterIssue()
+				return nil
+			end
+			local backoffInterval = FILTER_BACKOFF_INTERVALS[math.min(#FILTER_BACKOFF_INTERVALS, filterRetries)]
+			-- backoffWait = backoffInterval +/- (0 -> backoffInterval)
+			local backoffWait = backoffInterval + ((math.random()*2 - 1) * backoffInterval)
+			wait(backoffWait)
+		end
+	else
+		--// Simulate filtering latency.
+		--// There is only latency the first time the message is filtered, all following calls will be instant.
+		if not StudioMessageFilteredCache[message] then
+			StudioMessageFilteredCache[message] = true
+			wait()
+		end
+		return message
+	end
+
+	return nil
+end
+
+--// Return values: bool filterSuccess, bool resultIsFilterObject, variant result
+function methods:InternalApplyRobloxFilterNewAPI(speakerName, message, textFilterContext) --// USES FFLAG
+	local alwaysRunFilter = false
+	local runFilter = RunService:IsServer() and not RunService:IsStudio()
+	if (alwaysRunFilter or runFilter) then
+
+		local fromSpeaker = self:GetSpeaker(speakerName)
+		if fromSpeaker == nil then
+			return false, nil, nil
+		end
+
+		local fromPlayerObj = fromSpeaker:GetPlayer()
+		if fromPlayerObj == nil then
+			return true, false, message
+		end
+
+		if allSpaces(message) then
+			return true, false, message
+		end
+
+		local success, filterResult = pcall(function()
+			local ts = game:GetService("TextService")
+			local result = ts:FilterStringAsync(message, fromPlayerObj.UserId, textFilterContext)
+			return result
+		end)
+		if (success) then
+			return true, true, filterResult
+		else
+			warn("Error filtering message:", message, filterResult)
+			self:InternalNotifyFilterIssue()
+			return false, nil, nil
+		end
+	end
+
+	--// Simulate filtering latency.
+	wait()
+	return true, false, message
+end
+
+function methods:InternalDoMessageFilter(speakerName, messageObj, channel)
+	local filtersIterator = self.FilterMessageFunctions:GetIterator()
+
+	for funcId, func, priority in filtersIterator do
+		local success, errorMessage = pcall(function()
+			func(speakerName, messageObj, channel)
+		end)
+
+		if not success then
+			warn(string.format("DoMessageFilter Function '%s' failed for reason: %s", funcId, errorMessage))
+		end
+	end
+end
+
+function methods:InternalDoProcessCommands(speakerName, message, channel)
+	local commandsIterator = self.ProcessCommandsFunctions:GetIterator()
+
+	for funcId, func, priority in commandsIterator do
+		local success, returnValue = pcall(function()
+			local ret = func(speakerName, message, channel)
+			if type(ret) ~= "boolean" then
+				error("Process command functions must return a bool")
+			end
+			return ret
+		end)
+
+		if not success then
+			warn(string.format("DoProcessCommands Function '%s' failed for reason: %s", funcId, returnValue))
+		elseif returnValue then
+			return true
+		end
+	end
+
+	return false
+end
+
+function methods:InternalGetUniqueMessageId()
+	local id = self.MessageIdCounter
+	self.MessageIdCounter = id + 1
+	return id
+end
+
+function methods:InternalAddSpeakerWithPlayerObject(speakerName, playerObj, fireSpeakerAdded)
+	if (self.Speakers[speakerName:lower()]) then
+		error("Speaker \"" .. speakerName .. "\" already exists!")
+	end
+
+	local speaker = Speaker.new(self, speakerName)
+	speaker:InternalAssignPlayerObject(playerObj)
+	self.Speakers[speakerName:lower()] = speaker
+
+	if fireSpeakerAdded then
+		local success, err = pcall(function() self.eSpeakerAdded:Fire(speakerName) end)
+		if not success and err then
+			print("Error adding speaker: " ..err)
+		end
+	end
+
+	return speaker
+end
+
+function methods:InternalFireSpeakerAdded(speakerName)
+	local success, err = pcall(function() self.eSpeakerAdded:Fire(speakerName) end)
+	if not success and err then
+		print("Error firing speaker added: " ..err)
+	end
+end
+
+--///////////////////////// Constructors
+--//////////////////////////////////////
+
+function module.new()
+	local obj = setmetatable({}, methods)
+
+	obj.MessageIdCounter = 0
+
+	obj.ChatChannels = {}
+	obj.Speakers = {}
+
+	obj.FilterMessageFunctions = Util:NewSortedFunctionContainer()
+	obj.ProcessCommandsFunctions = Util:NewSortedFunctionContainer()
+
+	obj.eChannelAdded = Instance.new("BindableEvent")
+	obj.eChannelRemoved = Instance.new("BindableEvent")
+	obj.eSpeakerAdded = Instance.new("BindableEvent")
+	obj.eSpeakerRemoved = Instance.new("BindableEvent")
+
+	obj.ChannelAdded = obj.eChannelAdded.Event
+	obj.ChannelRemoved = obj.eChannelRemoved.Event
+	obj.SpeakerAdded = obj.eSpeakerAdded.Event
+	obj.SpeakerRemoved = obj.eSpeakerRemoved.Event
+
+	obj.ChatServiceMajorVersion = 0
+	obj.ChatServiceMinorVersion = 5
+
+	return obj
+end
+
+return module.new()]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="ModuleScript" referent="RBX155D6CA1E47D4E05B10DE950CB33D042">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">ChatChannel</string>
+				<string name="ScriptGuid">{F099B716-C98C-44C4-B184-0A3622A77EF5}</string>
+				<ProtectedString name="Source"><![CDATA[--	// FileName: ChatChannel.lua
+--	// Written by: Xsitsu
+--	// Description: A representation of one channel that speakers can chat in.
+
+local userShouldMuteUnfilteredMessage = false
+do
+	local success, enabled = pcall(function() return UserSettings():IsUserFeatureEnabled("UserShouldMuteUnfilteredMessage") end)
+	userShouldMuteUnfilteredMessage = success and enabled
+end
+
+local module = {}
+
+local modulesFolder = script.Parent
+local Chat = game:GetService("Chat")
+local RunService = game:GetService("RunService")
+local replicatedModules = Chat:WaitForChild("ClientChatModules")
+local ChatSettings = require(replicatedModules:WaitForChild("ChatSettings"))
+
+--////////////////////////////// Include
+--//////////////////////////////////////
+local ChatConstants = require(replicatedModules:WaitForChild("ChatConstants"))
+local Util = require(modulesFolder:WaitForChild("Util"))
+
+local ChatLocalization = nil
+pcall(function() ChatLocalization = require(game:GetService("Chat").ClientChatModules.ChatLocalization) end)
+ChatLocalization = ChatLocalization or {}
+
+if not ChatLocalization.FormatMessageToSend or not ChatLocalization.LocalizeFormattedMessage then
+	function ChatLocalization:FormatMessageToSend(key,default) return default end
+end
+
+--////////////////////////////// Methods
+--//////////////////////////////////////
+
+local methods = {}
+methods.__index = methods
+
+function methods:SendSystemMessage(message, extraData)
+	local messageObj = self:InternalCreateMessageObject(message, nil, true, extraData)
+
+	local success, err = pcall(function() self.eMessagePosted:Fire(messageObj) end)
+	if not success and err then
+		print("Error posting message: " ..err)
+	end
+
+	self:InternalAddMessageToHistoryLog(messageObj)
+
+	for i, speaker in pairs(self.Speakers) do
+		speaker:InternalSendSystemMessage(messageObj, self.Name)
+	end
+
+	return messageObj
+end
+
+function methods:SendSystemMessageToSpeaker(message, speakerName, extraData)
+	local speaker = self.Speakers[speakerName]
+	if (speaker) then
+		local messageObj = self:InternalCreateMessageObject(message, nil, true, extraData)
+		speaker:InternalSendSystemMessage(messageObj, self.Name)
+	elseif RunService:IsStudio() then
+		warn(string.format("Speaker '%s' is not in channel '%s' and cannot be sent a system message", speakerName, self.Name))
+	end
+end
+
+function methods:SendMessageObjToFilters(message, messageObj, fromSpeaker)
+	local oldMessage = messageObj.Message
+	messageObj.Message = message
+	self:InternalDoMessageFilter(fromSpeaker.Name, messageObj, self.Name)
+	self.ChatService:InternalDoMessageFilter(fromSpeaker.Name, messageObj, self.Name)
+	local newMessage = messageObj.Message
+	messageObj.Message = oldMessage
+	return newMessage
+end
+
+function methods:CanCommunicateByUserId(userId1, userId2)
+	if RunService:IsStudio() then
+		return true
+	end
+	-- UserId is set as 0 for non player speakers.
+	if userId1 == 0 or userId2 == 0 then
+		return true
+	end
+	local success, canCommunicate = pcall(function()
+		return Chat:CanUsersChatAsync(userId1, userId2)
+	end)
+	return success and canCommunicate
+end
+
+function methods:CanCommunicate(speakerObj1, speakerObj2)
+	local player1 = speakerObj1:GetPlayer()
+	local player2 = speakerObj2:GetPlayer()
+	if player1 and player2 then
+		return self:CanCommunicateByUserId(player1.UserId, player2.UserId)
+	end
+	return true
+end
+
+function methods:SendMessageToSpeaker(message, speakerName, fromSpeakerName, extraData)
+	local speakerTo = self.Speakers[speakerName]
+	local speakerFrom = self.ChatService:GetSpeaker(fromSpeakerName)
+	if speakerTo and speakerFrom then
+		local isMuted = speakerTo:IsSpeakerMuted(fromSpeakerName)
+		if isMuted then
+			return
+		end
+
+		if not self:CanCommunicate(speakerTo, speakerFrom) then
+			return
+		end
+
+		-- We need to claim the message is filtered even if it not in this case for compatibility with legacy client side code.
+		local isFiltered = speakerName == fromSpeakerName
+		local messageObj = self:InternalCreateMessageObject(message, fromSpeakerName, isFiltered, extraData)
+		message = self:SendMessageObjToFilters(message, messageObj, fromSpeakerName)
+		speakerTo:InternalSendMessage(messageObj, self.Name)
+
+		local textContext = self.Private and Enum.TextFilterContext.PrivateChat or Enum.TextFilterContext.PublicChat
+		local filterSuccess, isFilterResult, filteredMessage = self.ChatService:InternalApplyRobloxFilterNewAPI(
+			messageObj.FromSpeaker,
+			message,
+			textContext
+		)
+		if (filterSuccess) then
+			messageObj.FilterResult = filteredMessage
+			messageObj.IsFilterResult = isFilterResult
+			messageObj.IsFiltered = true
+			speakerTo:InternalSendFilteredMessageWithFilterResult(messageObj, self.Name)
+		end
+	elseif RunService:IsStudio() then
+		warn(string.format("Speaker '%s' is not in channel '%s' and cannot be sent a message", speakerName, self.Name))
+	end
+end
+
+function methods:KickSpeaker(speakerName, reason)
+	local speaker = self.ChatService:GetSpeaker(speakerName)
+	if (not speaker) then
+		error("Speaker \"" .. speakerName .. "\" does not exist!")
+	end
+
+	local messageToSpeaker = ""
+	local messageToChannel = ""
+	local playerName = speaker:GetNameForDisplay()
+
+	if (reason) then
+		messageToSpeaker = string.format("You were kicked from '%s' for the following reason(s): %s", self.Name, reason)
+		messageToChannel = string.format("%s was kicked for the following reason(s): %s", playerName, reason)
+	else
+		messageToSpeaker = string.format("You were kicked from '%s'", self.Name)
+		messageToChannel = string.format("%s was kicked", playerName)
+	end
+
+	self:SendSystemMessageToSpeaker(messageToSpeaker, speakerName)
+	speaker:LeaveChannel(self.Name)
+	self:SendSystemMessage(messageToChannel)
+end
+
+function methods:MuteSpeaker(speakerName, reason, length)
+	local speaker = self.ChatService:GetSpeaker(speakerName)
+	if (not speaker) then
+		error("Speaker \"" .. speakerName .. "\" does not exist!")
+	end
+
+	self.Mutes[speakerName:lower()] = (length == 0 or length == nil) and 0 or (os.time() + length)
+
+	if (reason) then
+		local playerName = speaker:GetNameForDisplay()
+
+		self:SendSystemMessage(string.format("%s was muted for the following reason(s): %s", playerName, reason))
+	end
+
+	local success, err = pcall(function() self.eSpeakerMuted:Fire(speakerName, reason, length) end)
+	if not success and err then
+		print("Error mutting speaker: " ..err)
+	end
+
+	local spkr = self.ChatService:GetSpeaker(speakerName)
+	if (spkr) then
+		local success, err = pcall(function() spkr.eMuted:Fire(self.Name, reason, length) end)
+		if not success and err then
+			print("Error mutting speaker: " ..err)
+		end
+	end
+
+end
+
+function methods:UnmuteSpeaker(speakerName)
+	local speaker = self.ChatService:GetSpeaker(speakerName)
+	if (not speaker) then
+		error("Speaker \"" .. speakerName .. "\" does not exist!")
+	end
+
+	self.Mutes[speakerName:lower()] = nil
+
+	local success, err = pcall(function() self.eSpeakerUnmuted:Fire(speakerName) end)
+	if not success and err then
+		print("Error unmuting speaker: " ..err)
+	end
+
+	local spkr = self.ChatService:GetSpeaker(speakerName)
+	if (spkr) then
+		local success, err = pcall(function() spkr.eUnmuted:Fire(self.Name) end)
+		if not success and err then
+			print("Error unmuting speaker: " ..err)
+		end
+	end
+end
+
+function methods:IsSpeakerMuted(speakerName)
+	return (self.Mutes[speakerName:lower()] ~= nil)
+end
+
+function methods:GetSpeakerList()
+	local list = {}
+	for i, speaker in pairs(self.Speakers) do
+		table.insert(list, speaker.Name)
+	end
+	return list
+end
+
+function methods:RegisterFilterMessageFunction(funcId, func, priority)
+	if self.FilterMessageFunctions:HasFunction(funcId) then
+		error(string.format("FilterMessageFunction '%s' already exists", funcId))
+	end
+	self.FilterMessageFunctions:AddFunction(funcId, func, priority)
+end
+
+function methods:FilterMessageFunctionExists(funcId)
+	return self.FilterMessageFunctions:HasFunction(funcId)
+end
+
+function methods:UnregisterFilterMessageFunction(funcId)
+	if not self.FilterMessageFunctions:HasFunction(funcId) then
+		error(string.format("FilterMessageFunction '%s' does not exists", funcId))
+	end
+	self.FilterMessageFunctions:RemoveFunction(funcId)
+end
+
+function methods:RegisterProcessCommandsFunction(funcId, func, priority)
+	if self.ProcessCommandsFunctions:HasFunction(funcId) then
+		error(string.format("ProcessCommandsFunction '%s' already exists", funcId))
+	end
+	self.ProcessCommandsFunctions:AddFunction(funcId, func, priority)
+end
+
+function methods:ProcessCommandsFunctionExists(funcId)
+	return self.ProcessCommandsFunctions:HasFunction(funcId)
+end
+
+function methods:UnregisterProcessCommandsFunction(funcId)
+	if not self.ProcessCommandsFunctions:HasFunction(funcId) then
+		error(string.format("ProcessCommandsFunction '%s' does not exist", funcId))
+	end
+	self.ProcessCommandsFunctions:RemoveFunction(funcId)
+end
+
+local function ShallowCopy(table)
+	local copy = {}
+	for i, v in pairs(table) do
+		copy[i] = v
+	end
+	return copy
+end
+
+function methods:GetHistoryLog()
+	return ShallowCopy(self.ChatHistory)
+end
+
+function methods:GetHistoryLogForSpeaker(speaker)
+	local userId = -1
+	local player = speaker:GetPlayer()
+	if player then
+		userId = player.UserId
+	end
+	local chatlog = {}
+
+	for i = 1, #self.ChatHistory do
+		local logUserId = self.ChatHistory[i].SpeakerUserId
+		if self:CanCommunicateByUserId(userId, logUserId) then
+			local messageObj = ShallowCopy(self.ChatHistory[i])
+
+			--// Since we're using the new filter API, we need to convert the stored filter result
+			--// into an actual string message to send to players for their chat history.
+			--// System messages aren't filtered the same way, so they just have a regular
+			--// text value in the Message field.
+			if (messageObj.MessageType == ChatConstants.MessageTypeDefault or messageObj.MessageType == ChatConstants.MessageTypeMeCommand) then
+				local filterResult = messageObj.FilterResult
+				if (messageObj.IsFilterResult) then
+					if (player) then
+						messageObj.Message = filterResult:GetChatForUserAsync(player.UserId)
+					else
+						messageObj.Message = filterResult:GetNonChatStringForBroadcastAsync()
+					end
+				else
+					messageObj.Message = filterResult
+				end
+			end
+
+			table.insert(chatlog, messageObj)
+		end
+	end
+	return chatlog
+end
+
+--///////////////// Internal-Use Methods
+--//////////////////////////////////////
+function methods:InternalDestroy()
+	for i, speaker in pairs(self.Speakers) do
+		speaker:LeaveChannel(self.Name)
+	end
+
+	self.eDestroyed:Fire()
+
+	self.eDestroyed:Destroy()
+	self.eMessagePosted:Destroy()
+	self.eSpeakerJoined:Destroy()
+	self.eSpeakerLeft:Destroy()
+	self.eSpeakerMuted:Destroy()
+	self.eSpeakerUnmuted:Destroy()
+end
+
+function methods:InternalDoMessageFilter(speakerName, messageObj, channel)
+	local filtersIterator = self.FilterMessageFunctions:GetIterator()
+	for funcId, func, priority in filtersIterator do
+		local success, errorMessage = pcall(function()
+			func(speakerName, messageObj, channel)
+		end)
+
+		if not success then
+			warn(string.format("DoMessageFilter Function '%s' failed for reason: %s", funcId, errorMessage))
+		end
+	end
+end
+
+function methods:InternalDoProcessCommands(speakerName, message, channel)
+	local commandsIterator = self.ProcessCommandsFunctions:GetIterator()
+	for funcId, func, priority in commandsIterator do
+		local success, returnValue = pcall(function()
+			local ret = func(speakerName, message, channel)
+			if type(ret) ~= "boolean" then
+				error("Process command functions must return a bool")
+			end
+			return ret
+		end)
+
+		if not success then
+			warn(string.format("DoProcessCommands Function '%s' failed for reason: %s", funcId, returnValue))
+		elseif returnValue then
+			return true
+		end
+	end
+
+	return false
+end
+
+function methods:InternalPostMessage(fromSpeaker, message, extraData)
+	if (self:InternalDoProcessCommands(fromSpeaker.Name, message, self.Name)) then return false end
+
+	if (self.Mutes[fromSpeaker.Name:lower()] ~= nil) then
+		local t = self.Mutes[fromSpeaker.Name:lower()]
+		if (t > 0 and os.time() > t) then
+			self:UnmuteSpeaker(fromSpeaker.Name)
+		else
+			self:SendSystemMessageToSpeaker(ChatLocalization:FormatMessageToSend("GameChat_ChatChannel_MutedInChannel","You are muted and cannot talk in this channel"), fromSpeaker.Name)
+			return false
+		end
+	end
+
+	local messageObj = self:InternalCreateMessageObject(message, fromSpeaker.Name, false, extraData)
+
+	-- allow server to process the unfiltered message string
+	messageObj.Message = message
+	local processedMessage
+	pcall(function()
+		processedMessage = Chat:InvokeChatCallback(Enum.ChatCallbackType.OnServerReceivingMessage, messageObj)
+	end)
+	messageObj.Message = nil
+
+	if processedMessage then
+
+		-- developer server code's choice to mute the message
+		if processedMessage.ShouldDeliver == false then
+			return false
+		end
+		messageObj = processedMessage
+	end
+
+	message = self:SendMessageObjToFilters(message, messageObj, fromSpeaker)
+
+	local sentToList = {}
+	for i, speaker in pairs(self.Speakers) do
+		local isMuted = speaker:IsSpeakerMuted(fromSpeaker.Name)
+		if not isMuted and self:CanCommunicate(fromSpeaker, speaker) then
+			table.insert(sentToList, speaker.Name)
+			if speaker.Name == fromSpeaker.Name then
+				-- Send unfiltered message to speaker who sent the message.
+				local cMessageObj = ShallowCopy(messageObj)
+				if userShouldMuteUnfilteredMessage then
+					cMessageObj.Message = string.rep("_", messageObj.MessageLength)
+				else
+					cMessageObj.Message = message
+				end
+				cMessageObj.IsFiltered = true
+				-- We need to claim the message is filtered even if it not in this case for compatibility with legacy client side code.
+				speaker:InternalSendMessage(cMessageObj, self.Name)
+			else
+				speaker:InternalSendMessage(messageObj, self.Name)
+			end
+		end
+	end
+
+	local success, err = pcall(function() self.eMessagePosted:Fire(messageObj) end)
+	if not success and err then
+		print("Error posting message: " ..err)
+	end
+
+	local textFilterContext = self.Private and Enum.TextFilterContext.PrivateChat or Enum.TextFilterContext.PublicChat
+	local filterSuccess, isFilterResult, filteredMessage = self.ChatService:InternalApplyRobloxFilterNewAPI(
+		messageObj.FromSpeaker,
+		message,
+		textFilterContext
+	)
+	if (filterSuccess) then
+		messageObj.FilterResult = filteredMessage
+		messageObj.IsFilterResult = isFilterResult
+	else
+		return false
+	end
+	messageObj.IsFiltered = true
+	self:InternalAddMessageToHistoryLog(messageObj)
+
+	for _, speakerName in pairs(sentToList) do
+		local speaker = self.Speakers[speakerName]
+		if (speaker) then
+			speaker:InternalSendFilteredMessageWithFilterResult(messageObj, self.Name)
+		end
+	end
+
+	-- One more pass is needed to ensure that no speakers do not recieve the message.
+	-- Otherwise a user could join while the message is being filtered who had not originally been sent the message.
+	local speakersMissingMessage = {}
+	for _, speaker in pairs(self.Speakers) do
+		local isMuted = speaker:IsSpeakerMuted(fromSpeaker.Name)
+		if not isMuted and self:CanCommunicate(fromSpeaker, speaker) then
+			local wasSentMessage = false
+			for _, sentSpeakerName in pairs(sentToList) do
+				if speaker.Name == sentSpeakerName then
+					wasSentMessage = true
+					break
+				end
+			end
+			if not wasSentMessage then
+				table.insert(speakersMissingMessage, speaker.Name)
+			end
+		end
+	end
+
+	for _, speakerName in pairs(speakersMissingMessage) do
+		local speaker = self.Speakers[speakerName]
+		if speaker then
+			speaker:InternalSendFilteredMessageWithFilterResult(messageObj, self.Name)
+		end
+	end
+
+	return messageObj
+end
+
+function methods:InternalAddSpeaker(speaker)
+	if (self.Speakers[speaker.Name]) then
+		warn("Speaker \"" .. speaker.name .. "\" is already in the channel!")
+		return
+	end
+
+	self.Speakers[speaker.Name] = speaker
+	local success, err = pcall(function() self.eSpeakerJoined:Fire(speaker.Name) end)
+	if not success and err then
+		print("Error removing channel: " ..err)
+	end
+end
+
+function methods:InternalRemoveSpeaker(speaker)
+	if (not self.Speakers[speaker.Name]) then
+		warn("Speaker \"" .. speaker.name .. "\" is not in the channel!")
+		return
+	end
+
+	self.Speakers[speaker.Name] = nil
+	local success, err = pcall(function() self.eSpeakerLeft:Fire(speaker.Name) end)
+	if not success and err then
+		print("Error removing speaker: " ..err)
+	end
+end
+
+function methods:InternalRemoveExcessMessagesFromLog()
+	local remove = table.remove
+	while (#self.ChatHistory > self.MaxHistory) do
+		remove(self.ChatHistory, 1)
+	end
+end
+
+function methods:InternalAddMessageToHistoryLog(messageObj)
+	table.insert(self.ChatHistory, messageObj)
+
+	self:InternalRemoveExcessMessagesFromLog()
+end
+
+function methods:GetMessageType(message, fromSpeaker)
+	if fromSpeaker == nil then
+		return ChatConstants.MessageTypeSystem
+	end
+	return ChatConstants.MessageTypeDefault
+end
+
+function methods:InternalCreateMessageObject(message, fromSpeaker, isFiltered, extraData)
+	local messageType = self:GetMessageType(message, fromSpeaker)
+
+	local speakerUserId = -1
+	local speakerDisplayName = nil
+	local speaker = nil
+
+	if fromSpeaker then
+		speaker = self.ChatService:GetSpeaker(fromSpeaker)
+		if speaker then
+			local player = speaker:GetPlayer()
+			if player then
+				speakerUserId = player.UserId
+
+				if ChatSettings.PlayerDisplayNamesEnabled then
+					speakerDisplayName = speaker:GetNameForDisplay()
+				end
+			else
+				speakerUserId = 0
+			end
+		end
+	end
+
+	local messageObj =
+		{
+			ID = self.ChatService:InternalGetUniqueMessageId(),
+			FromSpeaker = fromSpeaker,
+			SpeakerDisplayName = speakerDisplayName,
+			SpeakerUserId = speakerUserId,
+			OriginalChannel = self.Name,
+			MessageLength = string.len(message),
+			MessageType = messageType,
+			IsFiltered = isFiltered,
+			Message = isFiltered and message or nil,
+			--// These two get set by the new API. The comments are just here
+			--// to remind readers that they will exist so it's not super
+			--// confusing if they find them in the code but cannot find them
+			--// here.
+			--FilterResult = nil,
+			--IsFilterResult = false,
+			Time = os.time(),
+			ExtraData = {},
+		}
+
+	if speaker then
+		for k, v in pairs(speaker.ExtraData) do
+			messageObj.ExtraData[k] = v
+		end
+	end
+
+	if (extraData) then
+		for k, v in pairs(extraData) do
+			messageObj.ExtraData[k] = v
+		end
+	end
+
+	return messageObj
+end
+
+function methods:SetChannelNameColor(color)
+	self.ChannelNameColor = color
+	for i, speaker in pairs(self.Speakers) do
+		speaker:UpdateChannelNameColor(self.Name, color)
+	end
+end
+
+function methods:GetWelcomeMessageForSpeaker(speaker)
+	if self.GetWelcomeMessageFunction then
+		local welcomeMessage = self.GetWelcomeMessageFunction(speaker)
+		if welcomeMessage then
+			return welcomeMessage
+		end
+	end
+	return self.WelcomeMessage
+end
+
+function methods:RegisterGetWelcomeMessageFunction(func)
+	if type(func) ~= "function" then
+		error("RegisterGetWelcomeMessageFunction must be called with a function.")
+	end
+	self.GetWelcomeMessageFunction = func
+end
+
+function methods:UnRegisterGetWelcomeMessageFunction()
+	self.GetWelcomeMessageFunction = nil
+end
+
+--///////////////////////// Constructors
+--//////////////////////////////////////
+
+function module.new(vChatService, name, welcomeMessage, channelNameColor)
+	local obj = setmetatable({}, methods)
+
+	obj.ChatService = vChatService
+
+	obj.Name = name
+	obj.WelcomeMessage = welcomeMessage or ""
+	obj.GetWelcomeMessageFunction = nil
+	obj.ChannelNameColor = channelNameColor
+
+	obj.Joinable = true
+	obj.Leavable = true
+	obj.AutoJoin = false
+	obj.Private = false
+
+	obj.Speakers = {}
+	obj.Mutes = {}
+
+	obj.MaxHistory = 200
+	obj.HistoryIndex = 0
+	obj.ChatHistory = {}
+
+	obj.FilterMessageFunctions = Util:NewSortedFunctionContainer()
+	obj.ProcessCommandsFunctions = Util:NewSortedFunctionContainer()
+
+	-- Make sure to destroy added binadable events in the InternalDestroy method.
+	obj.eDestroyed = Instance.new("BindableEvent")
+	obj.eMessagePosted = Instance.new("BindableEvent")
+	obj.eSpeakerJoined = Instance.new("BindableEvent")
+	obj.eSpeakerLeft = Instance.new("BindableEvent")
+	obj.eSpeakerMuted = Instance.new("BindableEvent")
+	obj.eSpeakerUnmuted = Instance.new("BindableEvent")
+
+	obj.MessagePosted = obj.eMessagePosted.Event
+	obj.SpeakerJoined = obj.eSpeakerJoined.Event
+	obj.SpeakerLeft = obj.eSpeakerLeft.Event
+	obj.SpeakerMuted = obj.eSpeakerMuted.Event
+	obj.SpeakerUnmuted = obj.eSpeakerUnmuted.Event
+	obj.Destroyed = obj.eDestroyed.Event
+
+	return obj
+end
+
+return module]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="ModuleScript" referent="RBX73AD8BD8674D44C2B2CFAB3DB2604203">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Util</string>
+				<string name="ScriptGuid">{F08EA869-1414-4FE5-BD51-44E0B173B147}</string>
+				<ProtectedString name="Source"><![CDATA[--	// FileName: Util.lua
+--	// Written by: TheGamer101
+--	// Description: Utility code used by the server side chat implementation.
+
+local Chat = game:GetService("Chat")
+local ReplicatedModules = Chat:WaitForChild("ClientChatModules")
+local ChatConstants = require(ReplicatedModules:WaitForChild("ChatConstants"))
+
+local DEFAULT_PRIORITY = ChatConstants.StandardPriority
+if DEFAULT_PRIORITY == nil then
+	DEFAULT_PRIORITY = 10
+end
+
+local Util = {}
+Util.__index = Util
+
+local SortedFunctionContainer = {}; do
+	-- This sorted function container is used to handle the logic around storing filter functions and
+	-- command processors by priority.
+
+	local methods = {}
+	methods.__index = methods
+
+	function methods:RebuildProcessCommandsPriorities()
+		self.RegisteredPriorites = {}
+		for priority, functions in pairs(self.FunctionMap) do
+			local functionsEmpty = true
+			for funcId, funciton in pairs(functions) do
+				functionsEmpty = false
+				break
+			end
+			if not functionsEmpty then
+				table.insert(self.RegisteredPriorites, priority)
+			end
+		end
+		table.sort(self.RegisteredPriorites, function(a, b)
+			return a > b
+		end)
+	end
+
+	function methods:HasFunction(funcId)
+		if self.RegisteredFunctions[funcId] == nil then
+			return false
+		end
+		return true
+	end
+
+	function methods:RemoveFunction(funcId)
+		local functionPriority = self.RegisteredFunctions[funcId]
+		self.RegisteredFunctions[funcId] = nil
+		self.FunctionMap[functionPriority][funcId] = nil
+		self:RebuildProcessCommandsPriorities()
+	end
+
+	function methods:AddFunction(funcId, func, priority)
+		if priority == nil then
+			priority = DEFAULT_PRIORITY
+		end
+
+		if self.RegisteredFunctions[funcId] then
+			error(funcId .. " is already in use!")
+		end
+
+		self.RegisteredFunctions[funcId] = priority
+
+		if self.FunctionMap[priority] == nil then
+			self.FunctionMap[priority] = {}
+		end
+
+		self.FunctionMap[priority][funcId] = func
+		self:RebuildProcessCommandsPriorities()
+	end
+
+	function methods:GetIterator()
+		local priorityIndex = 1
+		local funcId = nil
+		local func = nil
+
+		return function()
+			while true do
+				if priorityIndex > #self.RegisteredPriorites then
+					return
+				end
+				local priority = self.RegisteredPriorites[priorityIndex]
+				funcId, func = next(self.FunctionMap[priority], funcId)
+				if funcId == nil then
+					priorityIndex = priorityIndex + 1
+				else
+					return funcId, func, priority
+				end
+			end
+		end
+	end
+
+	function SortedFunctionContainer.new()
+		local obj = setmetatable({}, methods)
+
+		obj.RegisteredFunctions = {}
+		obj.RegisteredPriorites = {}
+		obj.FunctionMap = {}
+
+		return obj
+	end
+end
+
+function Util:NewSortedFunctionContainer()
+	return SortedFunctionContainer.new()
+end
+
+return Util]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="ModuleScript" referent="RBX3AB9159777FD43029637226513FBB39C">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Speaker</string>
+				<string name="ScriptGuid">{DC0C9A7B-3443-4DF7-A03C-15DE4270ED8A}</string>
+				<ProtectedString name="Source"><![CDATA[--	// FileName: Speaker.lua
+--	// Written by: Xsitsu
+--	// Description: A representation of one entity that can chat in different ChatChannels.
+
+local module = {}
+
+local Chat = game:GetService("Chat")
+local ReplicatedModules = Chat:WaitForChild("ClientChatModules")
+local ChatSettings = require(ReplicatedModules:WaitForChild("ChatSettings"))
+
+local modulesFolder = script.Parent
+
+--////////////////////////////// Methods
+--//////////////////////////////////////
+local function ShallowCopy(table)
+	local copy = {}
+	for i, v in pairs(table) do
+		copy[i] = v
+	end
+	return copy
+end
+
+local methods = {}
+
+local lazyEventNames =
+	{
+		eDestroyed = true,
+		eSaidMessage = true,
+		eReceivedMessage = true,
+		eReceivedUnfilteredMessage = true,
+		eMessageDoneFiltering = true,
+		eReceivedSystemMessage = true,
+		eChannelJoined = true,
+		eChannelLeft = true,
+		eMuted = true,
+		eUnmuted = true,
+		eExtraDataUpdated = true,
+		eMainChannelSet = true,
+		eChannelNameColorUpdated = true,
+	}
+local lazySignalNames =
+	{
+		Destroyed = "eDestroyed",
+		SaidMessage = "eSaidMessage",
+		ReceivedMessage = "eReceivedMessage",
+		ReceivedUnfilteredMessage = "eReceivedUnfilteredMessage",
+		RecievedUnfilteredMessage = "eReceivedUnfilteredMessage", -- legacy mispelling
+		MessageDoneFiltering = "eMessageDoneFiltering",
+		ReceivedSystemMessage = "eReceivedSystemMessage",
+		ChannelJoined = "eChannelJoined",
+		ChannelLeft = "eChannelLeft",
+		Muted = "eMuted",
+		Unmuted = "eUnmuted",
+		ExtraDataUpdated = "eExtraDataUpdated",
+		MainChannelSet = "eMainChannelSet",
+		ChannelNameColorUpdated = "eChannelNameColorUpdated"
+	}
+
+methods.__index = function (self, k)
+	local fromMethods = rawget(methods, k)
+	if fromMethods then return fromMethods end
+
+	if lazyEventNames[k] and not rawget(self, k) then
+		rawset(self, k, Instance.new("BindableEvent"))
+	end
+	local lazySignalEventName = lazySignalNames[k]
+	if lazySignalEventName and not rawget(self, k) then
+		if not rawget(self, lazySignalEventName) then
+			rawset(self, lazySignalEventName, Instance.new("BindableEvent"))
+		end
+		rawset(self, k, rawget(self, lazySignalEventName).Event)
+	end
+	return rawget(self, k)
+end
+
+function methods:LazyFire(eventName, ...)
+	local createdEvent = rawget(self, eventName)
+	if createdEvent then
+		createdEvent:Fire(...)
+	end
+end
+
+function methods:SayMessage(message, channelName, extraData)
+	if self.ChatService:InternalDoProcessCommands(self.Name, message, channelName) then
+		return
+	end
+	if not channelName then
+		return
+	end
+
+	local channel = self.Channels[channelName:lower()]
+	if not channel then
+		return
+	end
+
+	local messageObj = channel:InternalPostMessage(self, message, extraData)
+	if messageObj then
+		pcall(function()
+			self:LazyFire("eSaidMessage", messageObj, channelName)
+		end)
+	end
+
+	return messageObj
+end
+
+function methods:JoinChannel(channelName)
+	if (self.Channels[channelName:lower()]) then
+		warn("Speaker is already in channel \"" .. channelName .. "\"")
+		return
+	end
+
+	local channel = self.ChatService:GetChannel(channelName)
+	if (not channel) then
+		error("Channel \"" .. channelName .. "\" does not exist!")
+	end
+
+	self.Channels[channelName:lower()] = channel
+	channel:InternalAddSpeaker(self)
+	local success, err = pcall(function()
+		self.eChannelJoined:Fire(channel.Name, channel:GetWelcomeMessageForSpeaker(self))
+	end)
+	if not success and err then
+		print("Error joining channel: " ..err)
+	end
+end
+
+function methods:LeaveChannel(channelName)
+	if (not self.Channels[channelName:lower()]) then
+		warn("Speaker is not in channel \"" .. channelName .. "\"")
+		return
+	end
+
+	local channel = self.Channels[channelName:lower()]
+
+	self.Channels[channelName:lower()] = nil
+	channel:InternalRemoveSpeaker(self)
+	local success, err = pcall(function()
+		self:LazyFire("eChannelLeft", channel.Name)
+		if self.PlayerObj then
+			self.EventFolder.OnChannelLeft:FireClient(self.PlayerObj, channel.Name)
+		end
+	end)
+	if not success and err then
+		print("Error leaving channel: " ..err)
+	end
+end
+
+function methods:IsInChannel(channelName)
+	return (self.Channels[channelName:lower()] ~= nil)
+end
+
+function methods:GetChannelList()
+	local list = {}
+	for i, channel in pairs(self.Channels) do
+		table.insert(list, channel.Name)
+	end
+	return list
+end
+
+function methods:SendMessage(message, channelName, fromSpeaker, extraData)
+	local channel = self.Channels[channelName:lower()]
+	if (channel) then
+		channel:SendMessageToSpeaker(message, self.Name, fromSpeaker, extraData)
+
+	else
+		warn(string.format("Speaker '%s' is not in channel '%s' and cannot receive a message in it.", self.Name, channelName))
+
+	end
+end
+
+function methods:SendSystemMessage(message, channelName, extraData)
+	local channel = self.Channels[channelName:lower()]
+	if (channel) then
+		channel:SendSystemMessageToSpeaker(message, self.Name, extraData)
+
+	else
+		warn(string.format("Speaker '%s' is not in channel '%s' and cannot receive a system message in it.", self.Name, channelName))
+
+	end
+end
+
+function methods:GetPlayer()
+	return self.PlayerObj
+end
+
+function methods:GetNameForDisplay()
+	if ChatSettings.PlayerDisplayNamesEnabled then
+		local player = self:GetPlayer()
+
+		if player then
+			return player.DisplayName
+		else
+			return self.Name
+		end
+	else
+		return self.Name
+	end
+end
+
+function methods:SetExtraData(key, value)
+	self.ExtraData[key] = value
+	self:LazyFire("eExtraDataUpdated", key, value)
+end
+
+function methods:GetExtraData(key)
+	return self.ExtraData[key]
+end
+
+function methods:SetMainChannel(channelName)
+	local success, err = pcall(function()
+		self:LazyFire("eMainChannelSet", channelName)
+		if self.PlayerObj then
+			self.EventFolder.OnMainChannelSet:FireClient(self.PlayerObj, channelName)
+		end
+	end)
+	if not success and err then
+		print("Error setting main channel: " ..err)
+	end
+end
+
+--- Used to mute a speaker so that this speaker does not see their messages.
+function methods:AddMutedSpeaker(speakerName)
+	self.MutedSpeakers[speakerName:lower()] = true
+end
+
+function methods:RemoveMutedSpeaker(speakerName)
+	self.MutedSpeakers[speakerName:lower()] = false
+end
+
+function methods:IsSpeakerMuted(speakerName)
+	return self.MutedSpeakers[speakerName:lower()]
+end
+
+--///////////////// Internal-Use Methods
+--//////////////////////////////////////
+function methods:InternalDestroy()
+	for i, channel in pairs(self.Channels) do
+		channel:InternalRemoveSpeaker(self)
+	end
+
+	self.eDestroyed:Fire()
+
+	self.EventFolder = nil
+	self.eDestroyed:Destroy()
+	self.eSaidMessage:Destroy()
+	self.eReceivedMessage:Destroy()
+	self.eReceivedUnfilteredMessage:Destroy()
+	self.eMessageDoneFiltering:Destroy()
+	self.eReceivedSystemMessage:Destroy()
+	self.eChannelJoined:Destroy()
+	self.eChannelLeft:Destroy()
+	self.eMuted:Destroy()
+	self.eUnmuted:Destroy()
+	self.eExtraDataUpdated:Destroy()
+	self.eMainChannelSet:Destroy()
+	self.eChannelNameColorUpdated:Destroy()
+end
+
+function methods:InternalAssignPlayerObject(playerObj)
+	self.PlayerObj = playerObj
+end
+
+function methods:InternalAssignEventFolder(eventFolder)
+	self.EventFolder = eventFolder
+end
+
+function methods:InternalSendMessage(messageObj, channelName)
+	local success, err = pcall(function()
+		self:LazyFire("eReceivedUnfilteredMessage", messageObj, channelName)
+		if self.PlayerObj then
+			self.EventFolder.OnNewMessage:FireClient(self.PlayerObj, messageObj, channelName)
+		end
+	end)
+	if not success and err then
+		print("Error sending internal message: " ..err)
+	end
+end
+
+function methods:InternalSendFilteredMessage(messageObj, channelName)
+	local success, err = pcall(function()
+		self:LazyFire("eReceivedMessage", messageObj, channelName)
+		self:LazyFire("eMessageDoneFiltering", messageObj, channelName)
+		if self.PlayerObj then
+			self.EventFolder.OnMessageDoneFiltering:FireClient(self.PlayerObj, messageObj, channelName)
+		end
+	end)
+	if not success and err then
+		print("Error sending internal filtered message: " ..err)
+	end
+end
+
+--// This method is to be used with the new filter API. This method takes the
+--// TextFilterResult objects and converts them into the appropriate string
+--// messages for each player.
+function methods:InternalSendFilteredMessageWithFilterResult(inMessageObj, channelName)
+	local messageObj = ShallowCopy(inMessageObj)
+
+	local oldFilterResult = messageObj.FilterResult
+	local player = self:GetPlayer()
+
+	local msg = ""
+	pcall(function()
+		if (messageObj.IsFilterResult) then
+			if (player) then
+				msg = oldFilterResult:GetChatForUserAsync(player.UserId)
+			else
+				msg = oldFilterResult:GetNonChatStringForBroadcastAsync()
+			end
+		else
+			msg = oldFilterResult
+		end
+	end)
+
+	--// Messages of 0 length are the result of two users not being allowed
+	--// to chat, or GetChatForUserAsync() failing. In both of these situations,
+	--// messages with length of 0 should not be sent.
+	if (#msg > 0) then
+		messageObj.Message = msg
+		messageObj.FilterResult = nil
+		self:InternalSendFilteredMessage(messageObj, channelName)
+	end
+end
+
+function methods:InternalSendSystemMessage(messageObj, channelName)
+	local success, err = pcall(function()
+		self:LazyFire("eReceivedSystemMessage", messageObj, channelName)
+		if self.PlayerObj then
+			self.EventFolder.OnNewSystemMessage:FireClient(self.PlayerObj, messageObj, channelName)
+		end
+	end)
+	if not success and err then
+		print("Error sending internal system message: " ..err)
+	end
+end
+
+function methods:UpdateChannelNameColor(channelName, channelNameColor)
+	self:LazyFire("eChannelNameColorUpdated", channelName, channelNameColor)
+	if self.PlayerObj then
+		self.EventFolder.ChannelNameColorUpdated:FireClient(self.PlayerObj, channelName, channelNameColor)
+	end
+end
+
+--///////////////////////// Constructors
+--//////////////////////////////////////
+
+function module.new(vChatService, name)
+	local obj = setmetatable({}, methods)
+
+	obj.ChatService = vChatService
+
+	obj.PlayerObj = nil
+
+	obj.Name = name
+	obj.ExtraData = {}
+
+	obj.Channels = {}
+	obj.MutedSpeakers = {}
+	obj.EventFolder = nil
+
+	return obj
+end
+
+return module]]></ProtectedString>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>
